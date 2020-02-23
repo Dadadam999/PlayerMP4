@@ -1,0 +1,5 @@
+﻿Нажать Ctrl+Alt+E там найти managed debugging assistance (3й сверху) в нем — loader lock и у брать напротив галочку.. и все будет ок..
+Свойства проекта - Сборка - Включить предпочтительно 32 разрядная версия
+Подкючить библиотеки директ Х
+Microsoft.DirectX.AudioVideoPlayback
+Microsoft.DirectX
