@@ -1,6 +1,6 @@
 ﻿namespace PlayerMP4
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -29,27 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.LeftBar = new System.Windows.Forms.Panel();
-            this.ListBookMarks = new System.Windows.Forms.ListBox();
+            this.ListBookmarks = new System.Windows.Forms.ListBox();
             this.ButTable = new System.Windows.Forms.TableLayoutPanel();
             this.AddBM = new System.Windows.Forms.Button();
             this.DeleteBM = new System.Windows.Forms.Button();
+            this.EditBM = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.VideoOut = new System.Windows.Forms.Panel();
             this.FooterBar = new System.Windows.Forms.Panel();
             this.TimeLine = new System.Windows.Forms.TrackBar();
+            this.PlayPause = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьВидеоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьПроектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьПроектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.PlayPause = new System.Windows.Forms.Button();
             this.SyncTimeLab = new System.Windows.Forms.Timer(this.components);
             this.TimeView = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.LeftBar.SuspendLayout();
             this.ButTable.SuspendLayout();
             this.FooterBar.SuspendLayout();
@@ -60,7 +63,7 @@
             // LeftBar
             // 
             this.LeftBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LeftBar.Controls.Add(this.ListBookMarks);
+            this.LeftBar.Controls.Add(this.ListBookmarks);
             this.LeftBar.Controls.Add(this.ButTable);
             this.LeftBar.Controls.Add(this.label1);
             this.LeftBar.Dock = System.Windows.Forms.DockStyle.Right;
@@ -69,53 +72,77 @@
             this.LeftBar.Size = new System.Drawing.Size(169, 450);
             this.LeftBar.TabIndex = 1;
             // 
-            // ListBookMarks
+            // ListBookmarks
             // 
-            this.ListBookMarks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListBookMarks.FormattingEnabled = true;
-            this.ListBookMarks.Location = new System.Drawing.Point(0, 53);
-            this.ListBookMarks.Name = "ListBookMarks";
-            this.ListBookMarks.Size = new System.Drawing.Size(167, 395);
-            this.ListBookMarks.TabIndex = 1;
+            this.ListBookmarks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ListBookmarks.FormattingEnabled = true;
+            this.ListBookmarks.Location = new System.Drawing.Point(0, 53);
+            this.ListBookmarks.Name = "ListBookmarks";
+            this.ListBookmarks.Size = new System.Drawing.Size(167, 395);
+            this.ListBookmarks.TabIndex = 1;
             // 
             // ButTable
             // 
-            this.ButTable.ColumnCount = 2;
-            this.ButTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ButTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ButTable.ColumnCount = 3;
+            this.ButTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.73054F));
+            this.ButTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.52695F));
+            this.ButTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.14371F));
             this.ButTable.Controls.Add(this.AddBM, 0, 0);
             this.ButTable.Controls.Add(this.DeleteBM, 1, 0);
+            this.ButTable.Controls.Add(this.EditBM, 2, 0);
             this.ButTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.ButTable.Location = new System.Drawing.Point(0, 23);
             this.ButTable.Name = "ButTable";
             this.ButTable.RowCount = 1;
-            this.ButTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ButTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ButTable.Size = new System.Drawing.Size(167, 30);
             this.ButTable.TabIndex = 1;
             // 
             // AddBM
             // 
             this.AddBM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddBM.Location = new System.Drawing.Point(3, 3);
             this.AddBM.Name = "AddBM";
-            this.AddBM.Size = new System.Drawing.Size(77, 24);
+            this.AddBM.Size = new System.Drawing.Size(52, 24);
             this.AddBM.TabIndex = 0;
             this.AddBM.Text = "Добавить";
             this.AddBM.UseVisualStyleBackColor = true;
+            this.AddBM.Click += new System.EventHandler(this.AddBM_Click);
             // 
             // DeleteBM
             // 
             this.DeleteBM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DeleteBM.Location = new System.Drawing.Point(86, 3);
+            this.DeleteBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteBM.Location = new System.Drawing.Point(61, 3);
             this.DeleteBM.Name = "DeleteBM";
-            this.DeleteBM.Size = new System.Drawing.Size(78, 24);
+            this.DeleteBM.Size = new System.Drawing.Size(55, 24);
             this.DeleteBM.TabIndex = 1;
             this.DeleteBM.Text = "Удалить";
             this.DeleteBM.UseVisualStyleBackColor = true;
+            this.DeleteBM.Click += new System.EventHandler(this.DeleteBM_Click);
             // 
-            // openFileDialog1
+            // EditBM
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.EditBM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EditBM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditBM.Location = new System.Drawing.Point(122, 3);
+            this.EditBM.Name = "EditBM";
+            this.EditBM.Size = new System.Drawing.Size(42, 24);
+            this.EditBM.TabIndex = 2;
+            this.EditBM.Text = "Изменить";
+            this.EditBM.UseVisualStyleBackColor = true;
+            this.EditBM.Click += new System.EventHandler(this.EditBM_Click);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(167, 23);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Закладки";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // VideoOut
             // 
@@ -146,12 +173,23 @@
             this.TimeLine.Size = new System.Drawing.Size(551, 29);
             this.TimeLine.TabIndex = 1;
             this.TimeLine.Scroll += new System.EventHandler(this.TimeLine_Scroll);
-            this.TimeLine.ValueChanged += new System.EventHandler(this.TimeLine_ValueChanged);
+            // 
+            // PlayPause
+            // 
+            this.PlayPause.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PlayPause.Location = new System.Drawing.Point(0, 0);
+            this.PlayPause.Name = "PlayPause";
+            this.PlayPause.Size = new System.Drawing.Size(75, 29);
+            this.PlayPause.TabIndex = 0;
+            this.PlayPause.Text = "Пуск";
+            this.PlayPause.UseVisualStyleBackColor = true;
+            this.PlayPause.Click += new System.EventHandler(this.PlayPause_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem});
+            this.файлToolStripMenuItem,
+            this.помощьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(628, 24);
@@ -172,37 +210,36 @@
             // открытьВидеоToolStripMenuItem
             // 
             this.открытьВидеоToolStripMenuItem.Name = "открытьВидеоToolStripMenuItem";
-            this.открытьВидеоToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьВидеоToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.открытьВидеоToolStripMenuItem.Text = "Открыть видео";
             this.открытьВидеоToolStripMenuItem.Click += new System.EventHandler(this.OpenFile_Click);
             // 
             // открытьПроектToolStripMenuItem
             // 
             this.открытьПроектToolStripMenuItem.Name = "открытьПроектToolStripMenuItem";
-            this.открытьПроектToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьПроектToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.открытьПроектToolStripMenuItem.Text = "Открыть проект";
+            this.открытьПроектToolStripMenuItem.Click += new System.EventHandler(this.открытьПроектToolStripMenuItem_Click);
             // 
             // сохранитьПроектToolStripMenuItem
             // 
             this.сохранитьПроектToolStripMenuItem.Name = "сохранитьПроектToolStripMenuItem";
-            this.сохранитьПроектToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьПроектToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.сохранитьПроектToolStripMenuItem.Text = "Сохранить проект";
+            this.сохранитьПроектToolStripMenuItem.Click += new System.EventHandler(this.сохранитьПроектToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
-            // label1
+            // помощьToolStripMenuItem
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Закладки";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
+            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.помощьToolStripMenuItem.Text = "Помощь";
             // 
             // splitter1
             // 
@@ -212,17 +249,6 @@
             this.splitter1.Size = new System.Drawing.Size(3, 450);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
-            // 
-            // PlayPause
-            // 
-            this.PlayPause.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PlayPause.Location = new System.Drawing.Point(0, 0);
-            this.PlayPause.Name = "PlayPause";
-            this.PlayPause.Size = new System.Drawing.Size(75, 29);
-            this.PlayPause.TabIndex = 0;
-            this.PlayPause.Text = "Пуск";
-            this.PlayPause.UseVisualStyleBackColor = true;
-            this.PlayPause.Click += new System.EventHandler(this.PlayPause_Click);
             // 
             // SyncTimeLab
             // 
@@ -239,7 +265,7 @@
             this.TimeView.Size = new System.Drawing.Size(0, 13);
             this.TimeView.TabIndex = 4;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -252,7 +278,7 @@
             this.Controls.Add(this.LeftBar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Main";
             this.LeftBar.ResumeLayout(false);
             this.ButTable.ResumeLayout(false);
             this.FooterBar.ResumeLayout(false);
@@ -267,7 +293,7 @@
 
         #endregion
         private System.Windows.Forms.Panel LeftBar;
-        private System.Windows.Forms.ListBox ListBookMarks;
+        private System.Windows.Forms.ListBox ListBookmarks;
         private System.Windows.Forms.TableLayoutPanel ButTable;
         private System.Windows.Forms.Button AddBM;
         private System.Windows.Forms.Button DeleteBM;
@@ -286,6 +312,9 @@
         private System.Windows.Forms.Button PlayPause;
         private System.Windows.Forms.Timer SyncTimeLab;
         private System.Windows.Forms.Label TimeView;
+        private System.Windows.Forms.Button EditBM;
+        private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
