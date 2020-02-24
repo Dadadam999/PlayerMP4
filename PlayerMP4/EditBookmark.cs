@@ -19,7 +19,6 @@ namespace PlayerMP4
             this.bm = bookmark;
             NameBookmark.Text = bm.Name;
             Position.Text = string.Format("{0:00}:{1:00}:{2:00}", bm.Position / 3600, (bm.Position / 60) % 60, bm.Position % 60);
-
         }
 
         private void Save_Click(object sender, EventArgs e)

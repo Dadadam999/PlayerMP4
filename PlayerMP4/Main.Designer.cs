@@ -48,7 +48,6 @@
             this.открытьПроектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьПроектToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.SyncTimeLab = new System.Windows.Forms.Timer(this.components);
             this.TimeView = new System.Windows.Forms.Label();
@@ -189,8 +188,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.помощьToolStripMenuItem});
+            this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(628, 24);
@@ -211,36 +209,30 @@
             // открытьВидеоToolStripMenuItem
             // 
             this.открытьВидеоToolStripMenuItem.Name = "открытьВидеоToolStripMenuItem";
-            this.открытьВидеоToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.открытьВидеоToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.открытьВидеоToolStripMenuItem.Text = "Открыть видео";
             this.открытьВидеоToolStripMenuItem.Click += new System.EventHandler(this.OpenFile_Click);
             // 
             // открытьПроектToolStripMenuItem
             // 
             this.открытьПроектToolStripMenuItem.Name = "открытьПроектToolStripMenuItem";
-            this.открытьПроектToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.открытьПроектToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.открытьПроектToolStripMenuItem.Text = "Открыть проект";
             this.открытьПроектToolStripMenuItem.Click += new System.EventHandler(this.открытьПроектToolStripMenuItem_Click);
             // 
             // сохранитьПроектToolStripMenuItem
             // 
             this.сохранитьПроектToolStripMenuItem.Name = "сохранитьПроектToolStripMenuItem";
-            this.сохранитьПроектToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.сохранитьПроектToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сохранитьПроектToolStripMenuItem.Text = "Сохранить проект";
             this.сохранитьПроектToolStripMenuItem.Click += new System.EventHandler(this.сохранитьПроектToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
-            // 
-            // помощьToolStripMenuItem
-            // 
-            this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
-            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.помощьToolStripMenuItem.Text = "Помощь";
             // 
             // splitter1
             // 
@@ -314,7 +306,6 @@
         private System.Windows.Forms.Timer SyncTimeLab;
         private System.Windows.Forms.Label TimeView;
         private System.Windows.Forms.Button EditBM;
-        private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
