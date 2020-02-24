@@ -52,7 +52,7 @@
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Location = new System.Drawing.Point(4, 32);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(102, 146);
+            this.label22.Size = new System.Drawing.Size(102, 60);
             this.label22.TabIndex = 1;
             this.label22.Text = "Позиция";
             // 
@@ -72,7 +72,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(510, 179);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(510, 57);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -97,20 +97,22 @@
             // Save
             // 
             this.Save.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Save.Location = new System.Drawing.Point(0, 179);
+            this.Save.Location = new System.Drawing.Point(0, 57);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(510, 25);
             this.Save.TabIndex = 4;
             this.Save.Text = "Сохранить";
             this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // EditBookmark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 204);
+            this.ClientSize = new System.Drawing.Size(510, 82);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.Save);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditBookmark";
             this.tableLayoutPanel1.ResumeLayout(false);

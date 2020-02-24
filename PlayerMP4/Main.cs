@@ -23,9 +23,13 @@ namespace PlayerMP4
         FileStream fStream;
         BinaryFormatter formatter;
 
+        EditBookmark EditBMForm;
+
+        public static Main selfref { get; set; }
         public Main()
         {
             InitializeComponent();
+            selfref = this;
         }
 
         #region menu
@@ -76,12 +80,12 @@ namespace PlayerMP4
                     formatter = new BinaryFormatter();
                     project = (VideoProject)formatter.Deserialize(fStream);
                     fStream.Close();
-                    if(File.Exists(project.FilePath))
-                       init_video(project.FilePath);
+                    if (File.Exists(project.FilePath))
+                        init_video(project.FilePath);
                     else
                         MessageBox.Show("Исходный файл не найден по сохранненому пути.");
                 }
-                else 
+                else
                     MessageBox.Show("Файл пустой.");
             }
         }
@@ -154,35 +158,49 @@ namespace PlayerMP4
         #region bookmarks function
         private void AddBM_Click(object sender, EventArgs e)
         {
-            if (video != null && project != null) {
+            if (video != null && project != null)
+            {
                 project.Bookmarks.Add(new Bookmark("Закладка " + project.Bookmarks.Count + 1, video.CurrentPosition));
-                update_list();
-            } 
+                UpdateList();
+            }
         }
 
         private void DeleteBM_Click(object sender, EventArgs e)
         {
             if (video != null && project != null)
-            {
-                if(ListBookmarks.Items[ListBookmarks.SelectedIndex] != null && project.Bookmarks.Count > 0)
-                    project.Bookmarks.Remove(project.Bookmarks.Find(x => x.Name == ListBookmarks.Items[ListBookmarks.SelectedIndex].ToString()));
-                update_list();
-            }
+                if (ListBookmarks.Items.Count > 0 && ListBookmarks.SelectedIndex >= 0)
+                {
+                    if (ListBookmarks.Items[ListBookmarks.SelectedIndex] != null && project.Bookmarks.Count > 0)
+                        project.Bookmarks.Remove(project.Bookmarks.Find(x => x.Name == ListBookmarks.Items[ListBookmarks.SelectedIndex].ToString()));
+                    UpdateList();
+                }
         }
 
         private void EditBM_Click(object sender, EventArgs e)
         {
             if (video != null && project != null)
-            {
-
-                update_list();
-            }
+                if (ListBookmarks.Items.Count > 0 && ListBookmarks.SelectedIndex >= 0)
+                {
+                    EditBMForm = new EditBookmark(project.Bookmarks.Find(x => x.Name == ListBookmarks.Items[ListBookmarks.SelectedIndex].ToString()));
+                    EditBMForm.Show();
+                    UpdateList();
+                }
         }
 
-        public void update_list() { 
-        
+        public bool CheckCloneBM(string NameBM)
+        {
+            return project.Bookmarks.Exists(x => x.Name == NameBM);
+        }
 
-        
+        public void UpdateList()
+        {
+            if (video != null && project != null)
+                if (project.Bookmarks.Count > 0)
+                {
+                    ListBookmarks.Items.Clear();
+                    foreach (Bookmark bm in project.Bookmarks)
+                        ListBookmarks.Items.Add(bm.Name);
+                }
         }
         #endregion
     }
