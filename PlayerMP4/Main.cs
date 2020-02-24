@@ -143,7 +143,8 @@ namespace PlayerMP4
 
         private void TimeLine_Scroll(object sender, EventArgs e)
         {
-            video.CurrentPosition = TimeLine.Value;
+            if (video != null && project != null)
+                video.CurrentPosition = TimeLine.Value;
         }
 
         private void Video_Ending(object sender, EventArgs e)
@@ -159,7 +160,7 @@ namespace PlayerMP4
         {
             if (video != null && project != null)
             {
-                project.Bookmarks.Add(new Bookmark("Закладка " + project.Bookmarks.Count + 1, video.CurrentPosition));
+                project.Bookmarks.Add(new Bookmark("Закладка " + (project.Bookmarks.Count + 1).ToString(), video.CurrentPosition));
                 UpdateList();
             }
         }

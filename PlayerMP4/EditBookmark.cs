@@ -25,12 +25,12 @@ namespace PlayerMP4
         {
             if (Main.selfref.CheckCloneBM(NameBookmark.Text))
                 MessageBox.Show("Закаладка с таким именем уже существует.");
-            else
+            else if(!String.IsNullOrEmpty(NameBookmark.Text))
             {
                 bm.Name = NameBookmark.Text;
                 Main.selfref.UpdateList();
                 Close();
-            }
+            } else MessageBox.Show("Закаладка имеет пустое имя.");
         }
     }
 }
