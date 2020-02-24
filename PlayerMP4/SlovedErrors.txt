@@ -3,3 +3,4 @@
 Подкючить библиотеки директ Х
 Microsoft.DirectX.AudioVideoPlayback
 Microsoft.DirectX
+В App.Config заменить <startup> на <startup useLegacyV2RuntimeActivationPolicy="true">

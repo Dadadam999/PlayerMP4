@@ -33,8 +33,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.Save = new System.Windows.Forms.Button();
             this.Position = new System.Windows.Forms.Label();
+            this.Save = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Имя";
             // 
+            // Position
+            // 
+            this.Position.AutoSize = true;
+            this.Position.Location = new System.Drawing.Point(113, 32);
+            this.Position.Name = "Position";
+            this.Position.Size = new System.Drawing.Size(49, 13);
+            this.Position.TabIndex = 4;
+            this.Position.Text = "00:00:00";
+            // 
             // Save
             // 
             this.Save.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -94,15 +103,6 @@
             this.Save.TabIndex = 4;
             this.Save.Text = "Сохранить";
             this.Save.UseVisualStyleBackColor = true;
-            // 
-            // Position
-            // 
-            this.Position.AutoSize = true;
-            this.Position.Location = new System.Drawing.Point(113, 32);
-            this.Position.Name = "Position";
-            this.Position.Size = new System.Drawing.Size(49, 13);
-            this.Position.TabIndex = 4;
-            this.Position.Text = "00:00:00";
             // 
             // EditBookmark
             // 
