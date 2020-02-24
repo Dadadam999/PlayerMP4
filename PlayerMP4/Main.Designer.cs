@@ -80,6 +80,7 @@
             this.ListBookmarks.Name = "ListBookmarks";
             this.ListBookmarks.Size = new System.Drawing.Size(167, 395);
             this.ListBookmarks.TabIndex = 1;
+            this.ListBookmarks.SelectedIndexChanged += new System.EventHandler(this.ListBookmarks_SelectedIndexChanged);
             // 
             // ButTable
             // 

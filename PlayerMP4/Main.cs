@@ -15,7 +15,6 @@ namespace PlayerMP4
 {
     public partial class Main : Form
     {
-
         Video video;
         VideoProject project;
         int CurrentPosition = 0, MaxPosition = 0;
@@ -37,10 +36,10 @@ namespace PlayerMP4
         {
             openFileDialog1.Filter = "mp4 files (*.mp4)|*.mp4|All files (*.*)|*.*";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                init_video(openFileDialog1.FileName);
+                Init_Video(openFileDialog1.FileName);
         }
 
-        void init_video(string FileName)
+        void Init_Video(string FileName)
         {
             try
             {
@@ -81,7 +80,7 @@ namespace PlayerMP4
                     project = (VideoProject)formatter.Deserialize(fStream);
                     fStream.Close();
                     if (File.Exists(project.FilePath))
-                        init_video(project.FilePath);
+                        Init_Video(project.FilePath);
                     else
                         MessageBox.Show("Исходный файл не найден по сохранненому пути.");
                 }
@@ -201,6 +200,21 @@ namespace PlayerMP4
                     foreach (Bookmark bm in project.Bookmarks)
                         ListBookmarks.Items.Add(bm.Name);
                 }
+        }
+
+        private void ListBookmarks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (video != null && project != null)
+                if (ListBookmarks.Items.Count > 0 && ListBookmarks.SelectedIndex >= 0)
+                    if (ListBookmarks.Items[ListBookmarks.SelectedIndex] != null && project.Bookmarks.Count > 0)
+                    {
+                        video.CurrentPosition = project.Bookmarks.Find(x => x.Name == ListBookmarks.Items[ListBookmarks.SelectedIndex].ToString()).Position;
+                        CurrentPosition = Convert.ToInt32(video.CurrentPosition);
+                        TimeView.Text = string.Format("{0:00}:{1:00}:{2:00}", CurrentPosition / 3600, (CurrentPosition / 60) % 60, CurrentPosition % 60)
+                                        + " / " +
+                                        string.Format("{0:00}:{1:00}:{2:00}", MaxPosition / 3600, (MaxPosition / 60) % 60, MaxPosition % 60);
+                        TimeLine.Value = CurrentPosition;
+                    }
         }
         #endregion
     }
