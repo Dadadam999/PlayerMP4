@@ -12,9 +12,10 @@ namespace PlayerMP4
     {
         public VideoProject(string FilePath) {
             this.FilePath = FilePath;
+            Bookmarks = new List<Bookmark>();
         }
         public string FilePath { get; set; }
         public string Name { get { return Path.GetFileNameWithoutExtension(FilePath); } }
-        public List<Bookmark> Bookmarks = new List<Bookmark>();
+        public List<Bookmark> Bookmarks;
     }
 }

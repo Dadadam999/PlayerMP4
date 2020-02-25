@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serilization.cs" />
     <Compile Include="VideoProject.cs" />
     <EmbeddedResource Include="EditBookmark.resx">
       <DependentUpon>EditBookmark.cs</DependentUpon>

@@ -21,6 +21,7 @@ namespace PlayerMP4
 
         FileStream fStream;
         BinaryFormatter formatter;
+        Serilization serialize = new Serilization();
 
         EditBookmark EditBMForm;
 
@@ -55,7 +56,8 @@ namespace PlayerMP4
                 TimeLine.Maximum = MaxPosition;
                 TimeLine.LargeChange = 1;
 
-                project = new VideoProject(FileName);
+                if(project == null)
+                   project = new VideoProject(FileName);
                 Text = project.Name;
 
                 MessageBox.Show("Видео загружено. Для воспроизведения нажмите кнопку Пуск.");
@@ -77,10 +79,15 @@ namespace PlayerMP4
                 {
                     fStream = new FileStream(openFileDialog1.FileName, FileMode.Open);
                     formatter = new BinaryFormatter();
-                    project = (VideoProject)formatter.Deserialize(fStream);
+                    serialize = (Serilization)formatter.Deserialize(fStream);
+                    project = serialize.vp;
+                    project.Bookmarks = serialize.bm;
                     fStream.Close();
                     if (File.Exists(project.FilePath))
+                    {
                         Init_Video(project.FilePath);
+                        UpdateList();
+                    }
                     else
                         MessageBox.Show("Исходный файл не найден по сохранненому пути.");
                 }
@@ -99,8 +106,11 @@ namespace PlayerMP4
                 formatter = new BinaryFormatter();
                 using (fStream = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
                 {
-                    formatter.Serialize(fStream, project);
+                    serialize.vp = project;
+                    serialize.bm = project.Bookmarks;
+                    formatter.Serialize(fStream, serialize);
                     fStream.Close();
+                    MessageBox.Show("Файл сохранен.");
                 }
             }
         }
@@ -195,12 +205,10 @@ namespace PlayerMP4
         public void UpdateList()
         {
             if (video != null && project != null)
-                if (project.Bookmarks.Count > 0)
-                {
-                    ListBookmarks.Items.Clear();
-                    foreach (Bookmark bm in project.Bookmarks)
-                        ListBookmarks.Items.Add(bm.Name);
-                }
+                ListBookmarks.Items.Clear();
+            if (project.Bookmarks.Count > 0)
+                foreach (Bookmark bm in project.Bookmarks)
+                    ListBookmarks.Items.Add(bm.Name);
         }
 
         private void ListBookmarks_SelectedIndexChanged(object sender, EventArgs e)
